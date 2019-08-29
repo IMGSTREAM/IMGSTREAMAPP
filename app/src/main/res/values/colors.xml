@@ -1,6 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#008577</color>
-    <color name="colorPrimaryDark">#00574B</color>
-    <color name="colorAccent">#D81B60</color>
+
+    <color name="colorPrimary">@color/green_2</color>
+    <color name="colorPrimaryDark">@color/green_3</color>
+    <color name="colorAccent">@color/blue_4</color>
+
+    <color name="transparent">#00FFFFFF</color>
+
+    <!-- http://paletton.com/#uid=#uid=c305A3w0G0kEwrYoSBTyLC2IgmINuhc-hXTAcb -->
+    <color name="green_0">#009C4D</color>
+    <color name="green_1">#2CC376</color>
+    <color name="green_2">#00C460</color>
+    <color name="green_3">#007F3E</color>
+    <color name="green_4">#00602F</color>
+
+    <color name="blue_0">#06568F</color>
+    <color name="blue_1">#3280B7</color>
+    <color name="blue_2">#0A70B8</color>
+    <color name="blue_3">#044674</color>
+    <color name="blue_4">#023458</color>
+
+    <color name="orange_0">#DF7C00</color>
+    <color name="orange_1">#FFA739</color>
+    <color name="orange_2">#FF8E00</color>
+    <color name="orange_3">#B56500</color>
+    <color name="orange_4">#894C00</color>
+
+    <color name="red_0">#D90010</color>
+    <color name="red_1">#FA3846</color>
+    <color name="red_2">#FA0012</color>
+    <color name="red_3">#B0000D</color>
+    <color name="red_4">#86000A</color>
+
+    <!-- http://paletton.com/#uid=11p0J0krIushhDYmlwduJo+yYjN -->
+    <color name="yellow_0">#F3CD21</color>
+    <color name="yellow_1">#FFE775</color>
+    <color name="yellow_2">#FFE04D</color>
+    <color name="yellow_3">#C7A508</color>
+    <color name="yellow_4">#9E8200</color>
+
 </resources>
