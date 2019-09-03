@@ -1,5 +1,7 @@
 package com.example.imgstreamproject.api.imgur.data.model;
 
+import java.io.Serializable;
+
 /**
  * GalleryItem
  * Abstract class that GalleryAlbum and GalleryImage will extends.
@@ -25,6 +27,28 @@ public class GalleryItem extends ImgurDataModel {
     private Boolean is_album;
     private Boolean is_most_viral;
     private Boolean nsfw;
+
+    public GalleryItem() {
+        id = "";
+        title = "";
+        description = "";
+        datetime = 0.0;
+        views = 0.0;
+        link = "";
+        account_id = 0.0;
+        account_url = "";
+        ups = 0.0;
+        downs = 0.0;
+        points = 0.0;
+        score = 0.0;
+        vote = "";
+        topic_id = 0.0;
+        topic = "";
+        comment_count = 0.0;
+        is_album = false;
+        is_most_viral = false;
+        nsfw = false;
+    }
 
     /**
      * @return id - The ID for the image

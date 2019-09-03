@@ -5,6 +5,7 @@ import com.google.gson.Gson;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.Serializable;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -14,7 +15,7 @@ import java.util.stream.Collectors;
  * <p>
  * More info: https://api.imgur.com/models
  */
-public class ImgurDataModel {
+public class ImgurDataModel implements Serializable {
 
     /**
      * Transform a object to the class given.

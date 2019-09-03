@@ -7,6 +7,10 @@
 
     <color name="transparent">#00FFFFFF</color>
 
+    <color name="commentViewBackground">@color/grey_blue_3</color>
+    <color name="commentViewBackgroundLight">@color/grey_blue_0</color>
+    <color name="commentViewBackgroundDark">@color/grey_blue_4</color>
+
     <!-- http://paletton.com/#uid=#uid=c305A3w0G0kEwrYoSBTyLC2IgmINuhc-hXTAcb -->
     <color name="green_0">#009C4D</color>
     <color name="green_1">#2CC376</color>
@@ -38,5 +42,12 @@
     <color name="yellow_2">#FFE04D</color>
     <color name="yellow_3">#C7A508</color>
     <color name="yellow_4">#9E8200</color>
+
+    <!-- http://paletton.com/#uid=13R0u0kcdcW8pomb4jiiFbpnL8S -->
+    <color name="grey_blue_0">#2F3346</color>
+    <color name="grey_blue_1">#666C84</color>
+    <color name="grey_blue_2">#494F69</color>
+    <color name="grey_blue_3">#1E243E</color>
+    <color name="grey_blue_4">#111730</color>
 
 </resources>

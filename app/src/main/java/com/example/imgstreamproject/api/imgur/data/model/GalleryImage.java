@@ -1,5 +1,7 @@
 package com.example.imgstreamproject.api.imgur.data.model;
 
+import java.io.Serializable;
+
 /**
  * GalleryImage
  * The data model formatted for gallery images.
@@ -22,6 +24,22 @@ public class GalleryImage extends GalleryItem {
     private Boolean looping;
     private Boolean favourite;
     private String section;
+
+    public GalleryImage() {
+        type = "";
+        animated = false;
+        width = 0.0;
+        height = 0.0;
+        size = 0.0;
+        bandwidth = 0.0;
+        deletedhash = "";
+        gifv = "";
+        mp4 = "";
+        mp4_size = 0.0;
+        looping = false;
+        favourite = false;
+        section = "";
+    }
 
     /**
      * @return type - Image MIME type.

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <item
+        android:gravity="right"
+        android:left="25dp">
+        <shape>
+            <corners
+                android:bottomLeftRadius="15dp"
+                android:bottomRightRadius="15dp"
+                android:topRightRadius="15dp" />
+            <gradient
+                android:angle="315"
+                android:centerColor="@color/commentViewBackground"
+                android:endColor="@color/commentViewBackground"
+                android:startColor="@color/commentViewBackground" />
+
+        </shape>
+    </item>
+    <item
+        android:bottom="650dp"
+        android:gravity="left"
+        android:right="340dp">
+        <shape>
+            <corners android:bottomLeftRadius="75dp" />
+            <solid android:color="@color/commentViewBackground" />
+        </shape>
+    </item>
+</layer-list>

@@ -1,7 +1,7 @@
 package com.example.imgstreamproject.api.imgur.endpoint.adapter;
 
 import com.example.imgstreamproject.api.imgur.endpoint.Config;
-import com.example.imgstreamproject.api.imgur.endpoint.service.ImageService;
+import com.example.imgstreamproject.api.imgur.endpoint.request.ImageRequest;
 
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
@@ -10,15 +10,15 @@ public class ImageAdapter {
 
     private final static String IMAGE_URL = Config.BASE_URL + "image/";
 
-    private static ImageService imageService;
+    private static ImageRequest imageRequest;
 
-    public static ImageService getImageService() {
+    public static ImageRequest getImageRequest() {
 
-        if (imageService == null) {
+        if (imageRequest == null) {
             Retrofit retrofit = new Retrofit.Builder().baseUrl(IMAGE_URL).addConverterFactory(GsonConverterFactory.create()).build();
-            imageService = retrofit.create(ImageService.class);
+            imageRequest = retrofit.create(ImageRequest.class);
         }
-        return imageService;
+        return imageRequest;
     }
 
 

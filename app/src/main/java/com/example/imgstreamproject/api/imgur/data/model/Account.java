@@ -1,5 +1,7 @@
 package com.example.imgstreamproject.api.imgur.data.model;
 
+import java.io.Serializable;
+
 /**
  * Account
  * This model is used to represent the basic account information.

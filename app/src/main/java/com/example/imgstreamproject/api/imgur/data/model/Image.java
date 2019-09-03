@@ -1,5 +1,7 @@
 package com.example.imgstreamproject.api.imgur.data.model;
 
+import java.io.Serializable;
+
 /**
  * Image
  * The base model for an image.
@@ -7,7 +9,7 @@ package com.example.imgstreamproject.api.imgur.data.model;
  * <p>
  * More info: https://api.imgur.com/models/image
  */
-public class Image extends ImgurDataModel {
+public class Image extends ImgurDataModel{
 
     private String id;
     private String title;

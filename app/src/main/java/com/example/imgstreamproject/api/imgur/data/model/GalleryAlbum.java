@@ -1,5 +1,6 @@
 package com.example.imgstreamproject.api.imgur.data.model;
 
+import java.io.Serializable;
 import java.util.List;
 
 /**
@@ -19,6 +20,15 @@ public class GalleryAlbum extends GalleryItem {
     private Double images_count;
     //    TODO Check images. Exact format is Array of Images. See: https://api.imgur.com/models/gallery_album
     private List<Image> images;
+
+    public GalleryAlbum() {
+        cover = "";
+        cover_width = 0.0;
+        cover_height = 0.0;
+        privacy = "";
+        layout = "";
+        images_count = 0.0;
+    }
 
     /**
      * @return cover - The ID of the album cover image.

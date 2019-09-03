@@ -1,5 +1,7 @@
 package com.example.imgstreamproject.api.imgur.data.model;
 
+import java.io.Serializable;
+
 /**
  * Account
  * This is the basic response for requests that do not return data. If the POST request has a Basic model it will return the id.

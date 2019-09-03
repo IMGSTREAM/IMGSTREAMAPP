@@ -1,8 +1,9 @@
 package com.example.imgstreamproject.api.imgur.data.model;
 
+import java.io.Serializable;
 import java.util.List;
 
-public class ImgurResponseModel {
+public class ImgurResponseModel implements Serializable {
 
     private List data;
 

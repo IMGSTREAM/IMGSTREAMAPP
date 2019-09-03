@@ -2,6 +2,10 @@
 
 
     <style name="AppTheme" parent="Theme.AppCompat.NoActionBar">
+
+    </style>
+
+    <style name="AppTheme.Main" parent="AppTheme">
         <item name="colorPrimary">@color/green_2</item>
         <item name="colorPrimaryDark">@color/green_4</item>
         <item name="colorAccent">@color/green_3</item>
@@ -14,11 +18,11 @@
         <item name="android:thumbTint">@color/green_2</item>
         <item name="android:textColorPrimaryDisableOnly">@color/green_2</item>
 
-       <!-- <item name="buttonStyle">@style/AppTheme.Imagen</item> -->
+        <!-- <item name="buttonStyle">@style/AppTheme.Imagen</item> -->
     </style>
 
-    <style name="AppTheme.Imagen" parent="TextAppearance.AppCompat.Widget.Button">
-        <item name="android:background">@color/blue_4</item>
+    <style name="AppTheme.SplashTheme" parent="AppTheme">
+        <item name="android:windowBackground">@drawable/splash_theme</item>
     </style>
 
 </resources>

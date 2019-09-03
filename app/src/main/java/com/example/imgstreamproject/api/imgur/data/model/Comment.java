@@ -1,5 +1,6 @@
 package com.example.imgstreamproject.api.imgur.data.model;
 
+import java.io.Serializable;
 import java.util.List;
 
 /**

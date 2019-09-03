@@ -4,12 +4,9 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.os.StrictMode;
 import android.util.Log;
-import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.Toast;
 
 import androidx.constraintlayout.widget.ConstraintLayout;
 
@@ -23,6 +20,9 @@ import com.example.imgstreamproject.api.imgur.endpoint.adapter.GalleryAdapter;
 import com.example.imgstreamproject.util.PicassoUtil;
 import com.example.imgstreamproject.util.ToastUtil;
 import com.example.imgstreamproject.view.BaseActivity;
+
+import java.util.Timer;
+import java.util.TimerTask;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -39,6 +39,8 @@ public class MainActivity extends BaseActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        setTheme(R.style.AppTheme_Main);
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
@@ -61,7 +63,6 @@ public class MainActivity extends BaseActivity {
 
     private void btnPruebaClickListener() {
         Log.i("btnPruebaClickListener", "Clicked");
-        pruebaPicasso();
         pruebaLlamadaEndpoint();
     }
 
@@ -71,14 +72,10 @@ public class MainActivity extends BaseActivity {
         startActivity(intent);
     }
 
-    public void pruebaPicasso() {
-        PicassoUtil.into("http://i.imgur.com/DvpvklR.png", ivPrueba);
-    }
-
     public void pruebaLlamadaEndpoint() {
         try {
-            //GalleryAdapter.getGalleryService().getGallery(Section.TOP, Sort.VIRAL,0, Viral.TRUE).enqueue(new Callback<ImgurResponseModel>() {
-            GalleryAdapter.getGalleryService().getGallery(Section.top, Sort.viral, 0, true).enqueue(new Callback<ImgurResponseModel>() {
+            //GalleryAdapter.getGalleryRequest().getGallery(Section.TOP, Sort.VIRAL,0, Viral.TRUE).enqueue(new Callback<ImgurResponseModel>() {
+            GalleryAdapter.getGalleryRequest().getGallery(Section.top, Sort.viral, 0, true).enqueue(new Callback<ImgurResponseModel>() {
                 @Override
                 public void onResponse(Call<ImgurResponseModel> call, Response<ImgurResponseModel> response) {
                     if (response.isSuccessful()) {
