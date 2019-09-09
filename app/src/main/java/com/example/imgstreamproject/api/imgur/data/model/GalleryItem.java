@@ -1,5 +1,10 @@
 package com.example.imgstreamproject.api.imgur.data.model;
 
+import com.google.gson.Gson;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.io.Serializable;
 
 /**
@@ -49,6 +54,7 @@ public class GalleryItem extends ImgurDataModel {
         is_most_viral = false;
         nsfw = false;
     }
+
 
     /**
      * @return id - The ID for the image

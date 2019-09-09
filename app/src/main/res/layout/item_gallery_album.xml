@@ -16,4 +16,5 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@color/blue_4" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

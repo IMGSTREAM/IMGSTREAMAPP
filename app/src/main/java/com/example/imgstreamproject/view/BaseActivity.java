@@ -1,10 +1,8 @@
 package com.example.imgstreamproject.view;
 
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.StrictMode;
-import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.Window;
@@ -12,16 +10,11 @@ import android.view.WindowManager;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.imgstreamproject.util.ToastUtil;
-
 public class BaseActivity extends AppCompatActivity implements View.OnClickListener, View.OnTouchListener {
-
-    protected Context context;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        context = this;
 
         requestWindowFeature(Window.FEATURE_NO_TITLE);
 
@@ -32,6 +25,7 @@ public class BaseActivity extends AppCompatActivity implements View.OnClickListe
                     StrictMode.ThreadPolicy.Builder().permitAll().build();
             StrictMode.setThreadPolicy(policy);
         }
+
     }
 
     @Override
@@ -42,38 +36,26 @@ public class BaseActivity extends AppCompatActivity implements View.OnClickListe
 
     @Override
     public void onClick(View view) {
-        Log.i("onClick", "Clicked ");
+//        TODO
     }
 
     @Override
     public boolean onGenericMotionEvent(MotionEvent event) {
-        Log.i("onGenericMotionEvent", "Moved");
+//        TODO
         return true;
     }
 
 
     @Override
     public boolean onTouchEvent(MotionEvent event) {
-        Log.i("onTouchEvent", "Moved");
-        ToastUtil.toast(this, "Moved");
-        float x = event.getX();
-        float y = event.getY();
-
-        switch (event.getAction()) {
-            case MotionEvent.ACTION_MOVE:
-                break;
-        }
+//        TODO
         return true;
     }
 
     @Override
     public boolean onTouch(View view, MotionEvent motionEvent) {
-        Log.i("onTouch", "Moved");
+//        TODO
         return true;
-    }
-
-    public Context getContext() {
-        return context;
     }
 
     private void setFlagAndDecorView() {

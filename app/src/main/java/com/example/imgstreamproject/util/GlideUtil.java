@@ -5,6 +5,7 @@ import android.view.View;
 import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.example.imgstreamproject.R;
 import com.example.imgstreamproject.api.imgur.data.model.GalleryAlbum;
 import com.example.imgstreamproject.api.imgur.data.model.GalleryImage;
@@ -67,11 +68,19 @@ public class GlideUtil {
     }
 
     public static void into(Context context, String path, ImageView imageView) {
-        Glide.with(context).load(path).error(R.drawable.ic_launcher_background).into(imageView);
+        Glide.with(context).load(path)
+                .diskCacheStrategy(DiskCacheStrategy.NONE)
+                .skipMemoryCache(true)
+                .error(R.drawable.ic_launcher_background)
+                .into(imageView);
     }
 
     public static void gif(Context context, String path, ImageView imageView) {
-        Glide.with(context).asGif().load(path).error(R.drawable.ic_launcher_background).into(imageView);
+        Glide.with(context).asGif().load(path)
+                .diskCacheStrategy(DiskCacheStrategy.NONE)
+                .skipMemoryCache(true)
+                .error(R.drawable.ic_launcher_background)
+                .into(imageView);
     }
 
 }

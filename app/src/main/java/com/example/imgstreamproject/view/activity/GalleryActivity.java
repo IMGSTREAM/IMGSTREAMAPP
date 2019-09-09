@@ -1,7 +1,6 @@
 package com.example.imgstreamproject.view.activity;
 
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -15,15 +14,12 @@ import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 
 import com.example.imgstreamproject.R;
-import com.example.imgstreamproject.api.imgur.data.model.GalleryAlbum;
-import com.example.imgstreamproject.api.imgur.data.model.GalleryImage;
 import com.example.imgstreamproject.api.imgur.data.model.GalleryItem;
-import com.example.imgstreamproject.api.imgur.data.model.ImgurDataModel;
-import com.example.imgstreamproject.api.imgur.data.model.ImgurResponseModel;
 import com.example.imgstreamproject.api.imgur.endpoint.Section;
 import com.example.imgstreamproject.api.imgur.endpoint.Sort;
 import com.example.imgstreamproject.api.imgur.endpoint.request.GalleryRequest;
-import com.example.imgstreamproject.util.ToastUtil;
+import com.example.imgstreamproject.api.imgur.endpoint.response.GalleryResponseAsync;
+import com.example.imgstreamproject.api.imgur.endpoint.service.GalleryService;
 import com.example.imgstreamproject.view.BaseActivity;
 import com.example.imgstreamproject.view.ViewMode;
 import com.example.imgstreamproject.view.adapter.GalleryAdapter;
@@ -31,14 +27,12 @@ import com.example.imgstreamproject.view.adapter.GalleryAdapter;
 import java.util.ArrayList;
 import java.util.List;
 
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
-
 public class GalleryActivity extends BaseActivity {
 
     //SERVICE
     private GalleryRequest galleryRequest = com.example.imgstreamproject.api.imgur.endpoint.adapter.GalleryAdapter.getGalleryRequest();
+    private GalleryService galleryService = new GalleryResponseAsync();
+
     private Section section = Section.hot;
     private Sort sort = Sort.viral;
     private Integer page = 0;
@@ -63,11 +57,14 @@ public class GalleryActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_gallery);
 
-
-        //ScreenUtil.setX(getWindowManager(), getSharedPreferences("LayoutPreferences", Context.MODE_PRIVATE));
-
-
         //VIEWS
+        initView();
+
+        //DATA
+        initData();
+    }
+
+    private void initView() {
         spnViewMode = findViewById(R.id.spn_view_mode);
         spnViewMode.setAdapter(new ArrayAdapter(this, R.layout.support_simple_spinner_dropdown_item, ViewMode.values()));
         spnViewMode.setOnItemSelectedListener(spnViewModeOnItemSelectedListener());
@@ -86,9 +83,6 @@ public class GalleryActivity extends BaseActivity {
         recyclerView = findViewById(R.id.rv_gallery);
         rvLayoutManager = new GridLayoutManager(this, 2);
         setRecyclerViewAdapter();
-
-        //DATA
-        getData();
     }
 
     //LISTENERS
@@ -112,7 +106,7 @@ public class GalleryActivity extends BaseActivity {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int pos, long id) {
                 section = (Section) parent.getItemAtPosition(pos);
-                getData();
+                initData();
             }
 
             @Override
@@ -127,7 +121,7 @@ public class GalleryActivity extends BaseActivity {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int pos, long id) {
                 sort = (Sort) parent.getItemAtPosition(pos);
-                getData();
+                initData();
             }
 
             @Override
@@ -139,34 +133,14 @@ public class GalleryActivity extends BaseActivity {
 
     private void swtShowViralOnCheckedChangeListener(CompoundButton compoundButton, boolean b) {
         showViral = b;
-        getData();
+        initData();
     }
 
-    private void getData() {
-//        galleryRequest.getGallery().enqueue(getGalleryCallBack());
-        galleryRequest.getGallery(section, sort, page, showViral).enqueue(getGalleryCallBack());
-    }
-
-    private Callback<ImgurResponseModel> getGalleryCallBack() {
-        return new Callback<ImgurResponseModel>() {
-            @Override
-            public void onResponse(Call<ImgurResponseModel> call, Response<ImgurResponseModel> response) {
-                if (response.isSuccessful()) {
-                    data = ImgurDataModel.transformList(response.body().getData(), GalleryAlbum.class, GalleryImage.class);
-                    setRecyclerViewAdapter();
-                } else {
-
-                }
-            }
-
-            @Override
-            public void onFailure(Call<ImgurResponseModel> call, Throwable t) {
-                data = new ArrayList<>();
-                setRecyclerViewAdapter();
-                Log.i("onFailure", t.getMessage());
-                ToastUtil.toast(GalleryActivity.this, "Failed");
-            }
-        };
+    private void initData() {
+        galleryService.getGallery(section, sort, page, showViral, data -> {
+            this.data = (List<GalleryItem>) data;
+            setRecyclerViewAdapter();
+        });
     }
 
     private void setRecyclerViewLayoutManager(ViewMode viewMode) {

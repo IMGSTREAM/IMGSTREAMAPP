@@ -34,14 +34,14 @@ public class GalleryImageActivity extends BaseActivity {
         data = (GalleryImage) intent.getSerializableExtra("gallery");
 
         //VIEWS
-        tvTitle = findViewById(R.id.tv_gallery_album_title);
+        tvTitle = findViewById(R.id.tv_gallery_image_title);
         if (data.getTitle() != null)
             tvTitle.setText(data.getTitle());
 
-        tvPoints = findViewById(R.id.tv_gallery_album_points);
+        tvPoints = findViewById(R.id.tv_gallery_image_points);
         tvPoints.setText(String.valueOf(data.getPoints()).concat(" Points"));
 
-        tvViews = findViewById(R.id.tv_gallery_album_views);
+        tvViews = findViewById(R.id.tv_gallery_image_views);
         tvViews.setText(String.valueOf(data.getViews()).concat(" Views"));
 
         ivGalleryImage = findViewById(R.id.iv_gallery_image);

@@ -3,7 +3,6 @@ package com.example.imgstreamproject.view.activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.widget.TextView;
 
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -12,13 +11,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.imgstreamproject.R;
 import com.example.imgstreamproject.api.imgur.data.model.GalleryAlbum;
 import com.example.imgstreamproject.api.imgur.data.model.Image;
-import com.example.imgstreamproject.api.imgur.data.model.ImgurDataModel;
-import com.example.imgstreamproject.api.imgur.data.model.ImgurResponseModel;
-import com.example.imgstreamproject.api.imgur.endpoint.adapter.AlbumAdapter;
-import com.example.imgstreamproject.api.imgur.endpoint.adapter.GalleryAdapter;
-import com.example.imgstreamproject.api.imgur.endpoint.request.AlbumRequest;
-import com.example.imgstreamproject.api.imgur.endpoint.request.GalleryRequest;
-import com.example.imgstreamproject.api.imgur.endpoint.response.AlbumResponse;
+import com.example.imgstreamproject.api.imgur.endpoint.response.AlbumResponseAsync;
 import com.example.imgstreamproject.api.imgur.endpoint.service.AlbumService;
 import com.example.imgstreamproject.view.BaseActivity;
 import com.example.imgstreamproject.view.adapter.GalleryAlbumAdapter;
@@ -27,19 +20,12 @@ import com.example.imgstreamproject.view.custom.CommentView;
 import java.util.ArrayList;
 import java.util.List;
 
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
-
 public class GalleryAlbumActivity extends BaseActivity {
 
-    private Context context = this;
+    private Context mContext = this;
 
     //SERVICE
-    private GalleryRequest galleryRequest = GalleryAdapter.getGalleryRequest();
-    private AlbumRequest albumRequest = AlbumAdapter.getAlbumRequest();
-
-    private AlbumService albumService = new AlbumResponse();
+    private AlbumService albumService = new AlbumResponseAsync();
 
     //DATA
     private GalleryAlbum galleryAlbum = new GalleryAlbum();
@@ -61,7 +47,7 @@ public class GalleryAlbumActivity extends BaseActivity {
         Intent intent = getIntent();
         galleryAlbum = (GalleryAlbum) intent.getSerializableExtra("gallery");
 
-        getData();
+        initData();
 
         //VIEWS
         tvTitle = findViewById(R.id.tv_gallery_album_title);
@@ -84,33 +70,16 @@ public class GalleryAlbumActivity extends BaseActivity {
 
     }
 
-    public void getData() {
-        albumRequest.getAlbumImages(galleryAlbum.getId()).enqueue(getAlbumCallBack());
-        data = albumService.getAlbumImages(galleryAlbum.getId());
-
+    public void initData() {
+        albumService.getAlbumImages(galleryAlbum.getId(), ai -> {
+            data = (List<Image>) ai;
+            setRecyclerView();
+        });
     }
 
     public void setRecyclerView() {
-        rvGalleryAlbumImages.setLayoutManager(new LinearLayoutManager(context));
-        rvGalleryAlbumImages.setAdapter(new GalleryAlbumAdapter(context, data));
+        rvGalleryAlbumImages.setLayoutManager(new LinearLayoutManager(mContext));
+        rvGalleryAlbumImages.setAdapter(new GalleryAlbumAdapter(mContext, data));
     }
-
-    public Callback<ImgurResponseModel> getAlbumCallBack() {
-        return new Callback<ImgurResponseModel>() {
-            @Override
-            public void onResponse(Call<ImgurResponseModel> call, Response<ImgurResponseModel> response) {
-                Log.i("Call", "Response");
-                data = ImgurDataModel.transformList(response.body().getData(), Image.class);
-                setRecyclerView();
-            }
-
-            @Override
-            public void onFailure(Call<ImgurResponseModel> call, Throwable t) {
-                Log.i("Call", "Throwable");
-
-            }
-        };
-    }
-
 
 }

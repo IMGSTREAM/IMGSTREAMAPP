@@ -8,9 +8,12 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class ImageAdapter {
 
-    private final static String IMAGE_URL = Config.BASE_URL + "image/";
+    private static final String IMAGE_URL = Config.BASE_URL + "image/";
 
     private static ImageRequest imageRequest;
+
+    private ImageAdapter() {
+    }
 
     public static ImageRequest getImageRequest() {
 
