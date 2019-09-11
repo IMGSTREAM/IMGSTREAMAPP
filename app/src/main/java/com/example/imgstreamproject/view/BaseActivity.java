@@ -12,6 +12,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class BaseActivity extends AppCompatActivity implements View.OnClickListener, View.OnTouchListener {
 
+    private Intent intent;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -69,7 +71,7 @@ public class BaseActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     protected void launchActivity(Class genericClass) {
-        Intent intent = new Intent(this, genericClass);
+        intent = new Intent(this, genericClass);
         startActivity(intent);
     }
 

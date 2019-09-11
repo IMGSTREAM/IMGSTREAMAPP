@@ -1,11 +1,10 @@
 package com.example.imgstreamproject.view.activity;
 
-import android.content.Context;
-import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 
 import androidx.constraintlayout.widget.ConstraintLayout;
 
@@ -17,7 +16,8 @@ public class MainActivity extends BaseActivity {
 
     //VIEWS
     private ConstraintLayout cLayoutMain;
-    private Button btnGallery;
+    private ImageButton imgBtnInfo;
+    private Button btnImgur;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,22 +27,31 @@ public class MainActivity extends BaseActivity {
 
         //VIEWS
         initView();
-
-        SharedPreferences layoutPreferences = getSharedPreferences("LayoutPreferences", Context.MODE_PRIVATE);
     }
 
     private void initView() {
-        cLayoutMain = findViewById(R.id.c_layout_activity_main);
+        cLayoutMain = findViewById(R.id.activity_main_root);
         cLayoutMain.setOnClickListener(this);
 
-        btnGallery = findViewById(R.id.btn_gallery);
-        btnGallery.setOnClickListener(v -> btnGalleryClickListener());
+        imgBtnInfo = findViewById(R.id.activity_main_btn_info);
+        imgBtnInfo.setOnClickListener(this);
+
+        btnImgur = findViewById(R.id.btn_activity_main_imgur);
+        btnImgur.setOnClickListener(this);
     }
 
-    private void btnGalleryClickListener() {
-        Log.i("btnGalleryClickListener", "Clicked");
-        Intent intent = new Intent(this, GalleryActivity.class);
-        startActivity(intent);
+    @Override
+    public void onClick(View view) {
+        super.onClick(view);
+        switch (view.getId()) {
+            case R.id.btn_activity_main_imgur:
+                Log.i("onClick", "btn_activity_main_imgur");
+                launchActivity(GalleryActivity.class);
+                break;
+            case R.id.activity_main_btn_info:
+                Log.i("onClick", "img_btn_activity_main_info");
+                launchActivity(InfoActivity.class);
+                break;
+        }
     }
-
 }
