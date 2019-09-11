@@ -17,8 +17,22 @@
 
         <item name="android:thumbTint">@color/green_2</item>
         <item name="android:textColorPrimaryDisableOnly">@color/green_2</item>
+        <item name="android:textColor">@color/green_2</item>
 
         <!-- <item name="buttonStyle">@style/AppTheme.Imagen</item> -->
+    </style>
+
+    <style name="AppTheme.Main.Content" parent="AppTheme.Main">
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:background">@color/blue_4</item>
+        <item name="android:scrollbarThumbVertical">@color/green_3</item>
+        <item name="android:scrollbarTrackVertical">@color/blue_4</item>
+
+    </style>
+
+    <style name="AppTheme.Main.Item" parent="AppTheme.Main">
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:background">@color/transparent</item>
     </style>
 
     <style name="AppTheme.SplashTheme" parent="AppTheme">

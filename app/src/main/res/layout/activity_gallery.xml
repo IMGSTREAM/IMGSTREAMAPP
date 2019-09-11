@@ -2,6 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:theme="@style/AppTheme.Main"
     android:id="@+id/c_layout_activity_gallery"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -37,20 +38,18 @@
             android:layout_height="match_parent"
             android:layout_weight="0.25"
             android:checked="true"
-            android:text="VIRAL" />
+            android:text="VIRAL"/>
     </LinearLayout>
 
     <androidx.recyclerview.widget.RecyclerView
+        android:theme="@style/AppTheme.Main.Content"
         android:id="@+id/rv_gallery"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/blue_4"
         android:scrollbarDefaultDelayBeforeFade="250"
         android:scrollbarSize="2.5dp"
         android:scrollbarStyle="outsideInset"
-        android:scrollbarThumbVertical="@color/green_3"
-        android:scrollbarTrackVertical="@color/blue_4"
         android:scrollbars="vertical"
-        app:fastScrollEnabled="false"></androidx.recyclerview.widget.RecyclerView>
+        app:fastScrollEnabled="false"/>
 
 </LinearLayout>

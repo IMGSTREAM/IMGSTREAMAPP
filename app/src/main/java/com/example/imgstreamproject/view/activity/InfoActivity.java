@@ -11,14 +11,16 @@ import androidx.viewpager.widget.ViewPager;
 
 import com.example.imgstreamproject.R;
 import com.example.imgstreamproject.util.ToastUtil;
+import com.example.imgstreamproject.view.BaseActivity;
 import com.example.imgstreamproject.view.adapter.InfoFragmentPagerAdapter;
 import com.example.imgstreamproject.view.fragment.AppInfoFragment;
 import com.example.imgstreamproject.view.fragment.ImgurInfoFragment;
+import com.example.imgstreamproject.view.transformer.ZoomOutPageTransformer;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class InfoActivity extends FragmentActivity {
+public class InfoActivity extends BaseActivity {
 
     //    FRAGMENT
     private List<Pair<String, Fragment>> fragments;
@@ -51,8 +53,10 @@ public class InfoActivity extends FragmentActivity {
     private void initView() {
         fragmentTabHost = findViewById(R.id.activity_info_fragment_nav);
         fragmentContainer = findViewById(R.id.activity_info_fragment_container);
+        fragmentContainer.setPageTransformer(true, new ZoomOutPageTransformer());
 
         pagerAdapter = new InfoFragmentPagerAdapter(getSupportFragmentManager(), fragments);
+
         fragmentContainer.setAdapter(pagerAdapter);
         fragmentContainer.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
@@ -62,7 +66,7 @@ public class InfoActivity extends FragmentActivity {
 
             @Override
             public void onPageSelected(int position) {
-                invalidateOptionsMenu();
+//                invalidateOptionsMenu();
                 fragmentTabHost.setCurrentTab(position);
             }
 
@@ -72,11 +76,9 @@ public class InfoActivity extends FragmentActivity {
             }
         });
 
-
         fragmentTabHost.setOnTabChangedListener(s -> {
             ToastUtil.toast(this, s);
-            fragmentContainer.setCurrentItem(fragmentTabHost.getCurrentTab());
-
+            fragmentContainer.setCurrentItem(fragmentTabHost.getCurrentTab(), true);
         });
 
         fragmentTabHost.setup(this, getSupportFragmentManager());
