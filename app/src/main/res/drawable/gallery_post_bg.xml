@@ -10,7 +10,7 @@
         android:endColor="@color/green_4"
         android:centerColor="@color/green_3"
         android:startColor="@color/green_0"
-        android:type="radial"></gradient>
+        android:type="radial"/>
 
     <padding
         android:bottom="0dp"

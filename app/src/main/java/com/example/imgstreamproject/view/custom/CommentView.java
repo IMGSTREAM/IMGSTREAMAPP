@@ -11,6 +11,8 @@ import com.example.imgstreamproject.R;
 
 public class CommentView extends ConstraintLayout {
 
+    private Context context;
+
     private String author;
     private String comment;
     private Integer points;
@@ -22,16 +24,24 @@ public class CommentView extends ConstraintLayout {
 
     public CommentView(Context context) {
         super(context);
-        init(context);
+        this.context = context;
+        init();
     }
 
     public CommentView(Context context, AttributeSet attrs) {
         super(context, attrs);
-        init(context);
+        this.context = context;
+        init();
     }
 
-    private void init(Context context) {
-        rootView = inflate(context, R.layout.view_comment, this);
+    public CommentView(Context context, AttributeSet attrs, int defStyleAttr) {
+        super(context, attrs, defStyleAttr);
+        this.context = context;
+        init();
+    }
+
+    private void init() {
+        rootView = inflate(context, R.layout.custom_view_comment_view, this);
         tvAuthor = rootView.findViewById(R.id.tv_view_commen_author);
         tvComment = rootView.findViewById(R.id.tv_view_comment_comment);
         tvPoints = rootView.findViewById(R.id.tv_view_comment_points);

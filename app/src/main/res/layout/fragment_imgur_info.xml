@@ -1,14 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/root_fragment_imgur_info"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".view.fragment.ImgurInfoFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="Info about imgur" />
+        android:layout_height="match_parent">
 
+        <LinearLayout
+            android:id="@+id/root_fragment_app_info"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_horizontal"
+            android:orientation="vertical"
+            tools:context=".view.fragment.AppInfoFragment">
+
+            <!-- TODO: Update blank fragment layout -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="@string/lorem_ipsum" />
+
+
+        </LinearLayout>
+    </ScrollView>
 </FrameLayout>

@@ -8,24 +8,23 @@ import android.widget.ImageView;
 
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.imgstreamproject.R;
 import com.example.imgstreamproject.api.imgur.data.model.Image;
 import com.example.imgstreamproject.api.imgur.global.parameter.Type;
 import com.example.imgstreamproject.util.GlideUtil;
 
 import java.util.List;
 
-public class GalleryViewActivityAdapter extends RecyclerView.Adapter<GalleryViewActivityAdapter.ViewHolder> {
+public class GalleryViewActivityRecyclerAdapter extends RecyclerView.Adapter<GalleryViewActivityRecyclerAdapter.ViewHolder> {
 
     Context context;
     List<Image> data;
 
-    public GalleryViewActivityAdapter(Context context, List<Image> data) {
+    public GalleryViewActivityRecyclerAdapter(Context context, List<Image> data) {
         this.context = context;
         this.data = data;
     }
 
-    public GalleryViewActivityAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public GalleryViewActivityRecyclerAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(viewType, parent, false);
 
         //SET THE VIEW'S ATTRIBUTES (SIZE, MARGINS...)
@@ -35,7 +34,7 @@ public class GalleryViewActivityAdapter extends RecyclerView.Adapter<GalleryView
     }
 
 
-    public void onBindViewHolder(GalleryViewActivityAdapter.ViewHolder holder, int position) {
+    public void onBindViewHolder(GalleryViewActivityRecyclerAdapter.ViewHolder holder, int position) {
         Image image = data.get(position);
         String link = image.getLink();
         String type = image.getType();

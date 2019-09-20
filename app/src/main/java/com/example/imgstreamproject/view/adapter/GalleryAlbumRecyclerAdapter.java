@@ -14,19 +14,19 @@ import com.example.imgstreamproject.util.GlideUtil;
 
 import java.util.List;
 
-public class GalleryAlbumAdapter extends RecyclerView.Adapter<GalleryAlbumAdapter.ViewHolder> {
+public class GalleryAlbumRecyclerAdapter extends RecyclerView.Adapter<GalleryAlbumRecyclerAdapter.ViewHolder> {
 
     Context context;
     List<Image> data;
 
-    public GalleryAlbumAdapter(Context context, List<Image> data) {
+    public GalleryAlbumRecyclerAdapter(Context context, List<Image> data) {
         this.context = context;
         this.data = data;
     }
 
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
 
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_gallery_album, parent, false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.recycler_item_gallery_album, parent, false);
 
         ViewHolder viewHolder = new ViewHolder(view);
         return viewHolder;

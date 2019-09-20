@@ -19,27 +19,27 @@ import com.example.imgstreamproject.view.activity.GalleryImageActivity;
 
 import java.util.List;
 
-public class GalleryAdapter extends RecyclerView.Adapter<GalleryAdapter.ViewHolder> {
+public class GalleryRecyclerAdapter extends RecyclerView.Adapter<GalleryRecyclerAdapter.ViewHolder> {
 
     private Context context;
     private List<GalleryItem> data;
 
-    public GalleryAdapter(Context context, List<GalleryItem> data) {
+    public GalleryRecyclerAdapter(Context context, List<GalleryItem> data) {
         this.context = context;
         this.data = data;
     }
 
     @Override
-    public GalleryAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public GalleryRecyclerAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
 
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_gallery, parent, false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.recycler_item_gallery, parent, false);
 
         ViewHolder viewHolder = new ViewHolder(view);
         return viewHolder;
     }
 
     @Override
-    public void onBindViewHolder(GalleryAdapter.ViewHolder holder, int position) {
+    public void onBindViewHolder(GalleryRecyclerAdapter.ViewHolder holder, int position) {
         GalleryItem galleryItem = data.get(position);
         String link;
         String type;
@@ -79,7 +79,7 @@ public class GalleryAdapter extends RecyclerView.Adapter<GalleryAdapter.ViewHold
 
         public ViewHolder(View itemView) {
             super(itemView);
-            cLayout = itemView.findViewById(R.id.c_layout_item_gallery);
+            cLayout = itemView.findViewById(R.id.root_recycler_item_gallery);
             ivImage = itemView.findViewById(R.id.iv_item_gallery_image);
             tvTitle = itemView.findViewById(R.id.tv_item_gallery_title);
         }

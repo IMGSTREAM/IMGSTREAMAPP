@@ -14,7 +14,7 @@ import com.example.imgstreamproject.api.imgur.data.model.Image;
 import com.example.imgstreamproject.api.imgur.endpoint.response.AlbumResponseAsync;
 import com.example.imgstreamproject.api.imgur.endpoint.service.AlbumService;
 import com.example.imgstreamproject.view.BaseActivity;
-import com.example.imgstreamproject.view.adapter.GalleryAlbumAdapter;
+import com.example.imgstreamproject.view.adapter.GalleryAlbumRecyclerAdapter;
 import com.example.imgstreamproject.view.custom.CommentView;
 
 import java.util.ArrayList;
@@ -79,7 +79,7 @@ public class GalleryAlbumActivity extends BaseActivity {
 
     public void setRecyclerView() {
         rvGalleryAlbumImages.setLayoutManager(new LinearLayoutManager(mContext));
-        rvGalleryAlbumImages.setAdapter(new GalleryAlbumAdapter(mContext, data));
+        rvGalleryAlbumImages.setAdapter(new GalleryAlbumRecyclerAdapter(mContext, data));
     }
 
 }

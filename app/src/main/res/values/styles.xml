@@ -3,6 +3,10 @@
 
     <style name="AppTheme" parent="Theme.AppCompat.NoActionBar">
 
+        <item name="decoration_color_0">@color/green_3</item>
+        <item name="decoration_color_1">@color/green_0</item>
+        <item name="decoration_color_2">@color/green_4</item>
+        <item name="background_color">@color/blue_4</item>
     </style>
 
     <style name="AppTheme.Main" parent="AppTheme">
@@ -19,6 +23,10 @@
         <item name="android:textColorPrimaryDisableOnly">@color/green_2</item>
         <item name="android:textColor">@color/green_2</item>
 
+        <item name="decoration_color_0">@color/green_3</item>
+        <item name="decoration_color_1">@color/green_0</item>
+        <item name="decoration_color_2">@color/green_4</item>
+        <item name="background_color">@color/grey_dark</item>
         <!-- <item name="buttonStyle">@style/AppTheme.Imagen</item> -->
     </style>
 
@@ -28,11 +36,21 @@
         <item name="android:scrollbarThumbVertical">@color/green_3</item>
         <item name="android:scrollbarTrackVertical">@color/blue_4</item>
 
+        <item name="decoration_color_0">@color/green_3</item>
+        <item name="decoration_color_1">@color/green_0</item>
+        <item name="decoration_color_2">@color/green_4</item>
+        <item name="background_color">@color/blue_4</item>
+
     </style>
 
     <style name="AppTheme.Main.Item" parent="AppTheme.Main">
         <item name="android:textColor">@android:color/white</item>
         <item name="android:background">@color/transparent</item>
+
+        <item name="decoration_color_0">@color/grey_light</item>
+        <item name="decoration_color_1">@color/grey_light</item>
+        <item name="decoration_color_2">@color/grey_light</item>
+        <item name="background_color">@color/grey_dark</item>
     </style>
 
     <style name="AppTheme.SplashTheme" parent="AppTheme">

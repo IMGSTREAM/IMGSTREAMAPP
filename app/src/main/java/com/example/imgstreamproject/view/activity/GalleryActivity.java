@@ -22,7 +22,7 @@ import com.example.imgstreamproject.api.imgur.endpoint.response.GalleryResponseA
 import com.example.imgstreamproject.api.imgur.endpoint.service.GalleryService;
 import com.example.imgstreamproject.view.BaseActivity;
 import com.example.imgstreamproject.view.ViewMode;
-import com.example.imgstreamproject.view.adapter.GalleryAdapter;
+import com.example.imgstreamproject.view.adapter.GalleryRecyclerAdapter;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -160,7 +160,7 @@ public class GalleryActivity extends BaseActivity {
     }
 
     private void setRecyclerViewAdapter() {
-        rvAdapter = new GalleryAdapter(this, data);
+        rvAdapter = new GalleryRecyclerAdapter(this, data);
         recyclerView.setAdapter(rvAdapter);
 
     }

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <attr name="decoration_color_0" format="reference"/>
+    <attr name="decoration_color_1" format="reference"/>
+    <attr name="decoration_color_2" format="reference"/>
+    <attr name="background_color" format="reference"/>
+</resources>

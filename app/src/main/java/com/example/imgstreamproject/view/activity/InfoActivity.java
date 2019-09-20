@@ -45,9 +45,6 @@ public class InfoActivity extends BaseActivity {
         fragments = new ArrayList<>();
         fragments.add(new Pair<>("APP", new AppInfoFragment()));
         fragments.add(new Pair<>("IMGUR", new ImgurInfoFragment()));
-        fragments.add(new Pair<>("YOU", new AppInfoFragment()));
-        fragments.add(new Pair<>("MUST", new ImgurInfoFragment()));
-        fragments.add(new Pair<>("DIE", new AppInfoFragment()));
     }
 
     private void initView() {
@@ -77,7 +74,7 @@ public class InfoActivity extends BaseActivity {
         });
 
         fragmentTabHost.setOnTabChangedListener(s -> {
-            ToastUtil.toast(this, s);
+//            ToastUtil.toast(this, s);
             fragmentContainer.setCurrentItem(fragmentTabHost.getCurrentTab(), true);
         });
 
