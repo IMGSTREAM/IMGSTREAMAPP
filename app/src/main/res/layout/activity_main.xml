@@ -5,11 +5,11 @@
     android:id="@+id/root_activity_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".view.activity.MainActivity"
+    tools:context=".views.activities.MainActivity"
     >
 
-    <com.example.imgstreamproject.view.custom.VideoPlayer
-        android:id="@+id/activity_main_vv_video"
+    <com.example.imgstreamproject.views.customs.VideoScreen
+        android:id="@+id/activity_main_vs_video"
         android:layout_width="350dp"
         android:layout_height="250dp"
         app:layout_constraintBottom_toBottomOf="parent"

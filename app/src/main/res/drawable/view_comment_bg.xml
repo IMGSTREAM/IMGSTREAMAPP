@@ -3,11 +3,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
     <item
-        android:gravity="right"
-        android:left="25dp">
+        android:gravity="right">
         <shape>
             <corners
-                android:bottomLeftRadius="15dp"
+                android:bottomLeftRadius="25dp"
                 android:bottomRightRadius="15dp"
                 android:topRightRadius="15dp" />
             <gradient
@@ -16,15 +15,6 @@
                 android:endColor="@color/commentViewBackground"
                 android:startColor="@color/commentViewBackground" />
 
-        </shape>
-    </item>
-    <item
-        android:bottom="650dp"
-        android:gravity="left"
-        android:right="340dp">
-        <shape>
-            <corners android:bottomLeftRadius="75dp" />
-            <solid android:color="@color/commentViewBackground" />
         </shape>
     </item>
 </layer-list>

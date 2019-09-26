@@ -57,4 +57,6 @@
     <color name="grey_blue_3">#1E243E</color>
     <color name="grey_blue_4">#111730</color>
 
+    <color name="black_overlay">#66000000</color>
+
 </resources>

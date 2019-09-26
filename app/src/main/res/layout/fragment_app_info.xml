@@ -8,12 +8,12 @@
         android:layout_height="match_parent">
 
         <LinearLayout
-            android:id="@+id/root_fragment_app_info"
+            android:id="@+id/fragment_app_info_container"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:gravity="center_horizontal"
             android:orientation="vertical"
-            tools:context=".view.fragment.AppInfoFragment">
+            tools:context=".views.fragments.AppInfoFragment">
 
             <TextView
                 android:text="About:"
@@ -21,8 +21,8 @@
                 android:layout_height="wrap_content"
                 android:paddingBottom="5dp"/>
 
-            <com.example.imgstreamproject.view.custom.ExpandableTextView
-                android:id="@+id/fragment_app_info_expandable_text_view_about"
+            <com.example.imgstreamproject.views.customs.ExpandableTextView
+                android:id="@+id/fragment_app_info_etv_about"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:paddingBottom="5dp"/>
@@ -34,7 +34,7 @@
                 android:paddingBottom="5dp"/>
 
             <TextView
-                android:id="@+id/fragment_app_info_text_view_author"
+                android:id="@+id/fragment_app_info_tv_author"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:paddingBottom="5dp"/>

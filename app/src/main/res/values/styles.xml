@@ -1,7 +1,7 @@
 <resources>
 
 
-    <style name="AppTheme" parent="Theme.AppCompat.NoActionBar">
+    <style name="AppTheme" parent="Theme.Design.NoActionBar">
 
         <item name="decoration_color_0">@color/green_3</item>
         <item name="decoration_color_1">@color/green_0</item>
@@ -55,6 +55,21 @@
 
     <style name="AppTheme.SplashTheme" parent="AppTheme">
         <item name="android:windowBackground">@drawable/splash_theme</item>
+    </style>
+
+    <style name="FullscreenTheme" parent="AppTheme">
+        <!--
+        <item name="android:actionBarStyle">@style/FullscreenActionBarStyle</item>
+        <item name="android:navigationMode">tabMode</item>
+        <item name="android:windowActionBarOverlay">true</item>
+        <item name="metaButtonBarButtonStyle">?android:attr/buttonBarButtonStyle</item>
+        <item name="android:windowBackground">@null</item>
+        <item name="metaButtonBarStyle">?android:attr/buttonBarStyle</item>
+        -->
+    </style>
+
+    <style name="FullscreenActionBarStyle" parent="Widget.AppCompat.ActionBar">
+        <item name="android:visibility">gone</item>
     </style>
 
 </resources>

@@ -4,19 +4,19 @@
     android:id="@+id/root_fragment_imgur_info"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".view.fragment.ImgurInfoFragment">
+    tools:context=".views.fragments.ImgurInfoFragment">
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
         <LinearLayout
-            android:id="@+id/root_fragment_app_info"
+            android:id="@+id/fragment_app_info_container"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:gravity="center_horizontal"
             android:orientation="vertical"
-            tools:context=".view.fragment.AppInfoFragment">
+            tools:context=".views.fragments.AppInfoFragment">
 
             <!-- TODO: Update blank fragment layout -->
             <TextView
